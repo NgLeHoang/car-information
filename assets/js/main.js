@@ -45,20 +45,54 @@ $(document).ready(function () {
         $(".car-container").eq(index).addClass("active");
     })
 
+    // Display car details when scroll
     $(window).on("scroll", function() {
-        if ($(this).scrollTop() > 80)
+        if ($(this).scrollTop() > 100)
         {
             $(".container__details").first().css("display", "flex");
         }
-        if ($(this).scrollTop() > 400)
+        if ($(this).scrollTop() > 450)
         {
             $(".container__details:nth-child(2)").css("display", "flex");
         }
-        if ($(this).scrollTop() > 700)
+        if ($(this).scrollTop() > 850)
         {
             $(".container__details:nth-child(3)").css("display", "flex");
         }
     });
+
+    $(".btn-login").on("click", function() {
+        $(".login-form").addClass("active");
+    });
+
+    $(".close-login-form").on("click", function() {
+        $(".login-form").removeClass("active");
+    });
 });
 
-
+var swiper = new Swiper(".car-list__slider", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    grabCursor: true,
+    centeredSlides: true,
+    autoplay: {
+        delay: 7000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        },
+      768: {
+        slidesPerView: 2,
+        },
+      991: {
+        slidesPerView: 3,
+        },
+    },
+});
